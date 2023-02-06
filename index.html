@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+</head>
+<body>
+
+    <form action="">
+      <b> Enter Mobile Number: </b>
+      <input type="number" id="number">
+     <button type="button" onclick="NewTab()" on>Generate OTP</button>
+     <br><br>
+
+     Enter otp here:<input type="number" id="gotp"><br><br>
+     <button type="button" onclick="votp()">Validate OTP</button>
+     <h5 style="color: rgb(67, 235, 67);" id="sucess"></h5>
+     <h5 style="color: rgb(244, 36, 36);" id="danger"></h5>
+        
+    </form>
+    <script>
+        var random;
+        function NewTab() {
+             random = Math.floor(Math.random() * 9000 + 1000);
+            var number =document.getElementById("number").value;
+            otp();
+            function otp(){
+                var msg ="Your OTP is ";
+                var msg2=" Please don't share it anyone"
+                var link=("https://wa.me/91"+number+"?text="+msg+random+msg2+"");
+                window.open(link, "_blank");   
+            }
+
+            
+           
+        }
+
+        function votp(){
+                var getotp=document.getElementById("gotp").value;
+                var msg11="valid OTP"
+                if(random==getotp){
+                    document.getElementById("sucess").innerHTML=msg11;
+                }else{
+                    var msg00="Invalid OTP"
+                    document.getElementById("danger").innerHTML=msg00;
+                }
+            }
+       
+       
+    </script>
+</body>
+</html>
